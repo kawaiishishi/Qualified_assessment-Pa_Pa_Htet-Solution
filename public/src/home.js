@@ -27,10 +27,14 @@ function getMostCommonGenres(books) {
           }
   });
   fiveCommonGenres.sort((a,b) => b.count - a.count);
+/*
   if (fiveCommonGenres.length > 5) {
     return fiveCommonGenres.slice(0,5);
-  }
+  }  
   return fiveCommonGenres;
+  */
+  let commonGenres = checkList(fiveCommonGenres);
+  return commonGenres;
   }
 
   function getMostPopularBooks(books) {
@@ -68,7 +72,14 @@ function getMostCommonGenres(books) {
     
     return topFive(popularAuthors);
   }
-    
+
+  //HELPER FUNCTION
+  //Checks length of list and slices to only 5
+  function checkList(list){
+    if (list.length > 5){
+      return list.slice(0,5);
+    }
+  }
    
 module.exports = {
   getTotalBooksCount,
